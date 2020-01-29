@@ -46,5 +46,5 @@
             * Explicit
             * I don't know
 
-3. How many types of variable  
+3. How many types of variable?
 
