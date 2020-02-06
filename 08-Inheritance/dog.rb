@@ -15,7 +15,7 @@ class Dog < Animal
         super(name: name)
         @breed = breed
 
-        @@all << self
+        @@all << self #overwritten by Animal's class variable because of same name
     end
 
     def self.all
