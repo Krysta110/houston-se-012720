@@ -4,7 +4,6 @@
 * - [ ] Explain the Model View Controller (MVC) pattern and give an example
 * - [ ] Implement one model that inherit from ActiveRecord
 * - [ ] Implement one controller to route and process requests
-* - [ ] Demonstrate how the params hash changes and where the data comes from
 * - [ ] Implement ERB template and get it to render data from controller and model
 * - [ ] Identify the connection between REST and CRUD
 
@@ -17,25 +16,35 @@
     * Controller: go-between
     * View: html that renders a web page
 
-**TASK:** Take 2 mins with you partner and discuss the MVC pattern
+**TASK:** Take 1 min with you partner and discuss the MVC pattern
     
 #### **Implement one model that inherit from ActiveRecord**
 * Model
     * A class (template for objects) which represents a table
     * Where business logic goes
 
-**TASK:** Implement Book model
+**TASK:** Implement books migration with title and year columns
     
 #### **Implement one controller to route and process requests**
 * Controller
-    * Where the path is driven
+    * Where the path is driven!
     * Analogies:
         * Model would be the kitchen, view would be the customers, and the controller would be the server
         * Model would be the factory, view would be the end user, and the controller would be the distributor
-        
-#### **Demonstrate how the params hash changes and where the data comes from**
+    * `get '/'`
+
+**TASK:** Create route for `/home` that displays "Hi!!!"
 
 #### **Implement ERB template and get it to render data from controller and model**
+* create `home.erb` view file
+* display message "Hi!!!" using instance variable
+* create `index.erb` to display all the books
+
+**TASK:** create route and erb to display single book information
+* View info on an individual book
+    * get '/books/:id'
+    * how the params hash changes and where the data comes from?
+    * show.erb
 
 #### **Identify the connection between REST and CRUD**
 * What REST stands for?
@@ -45,8 +54,13 @@
     * Index page
     * Show page
     * New page
-    * Edit page
+        * form
+        * methods
+        * how params hash is build?
     * Create route
+    * Edit page
+        * methods
+        * set :method_override, true
     * Update route
     * Delete route
 
