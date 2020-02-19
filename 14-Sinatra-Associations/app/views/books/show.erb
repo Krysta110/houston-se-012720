@@ -3,6 +3,8 @@
 <h4> <%= @book.title %> </h4>
 <label>Year:</label>
 <h4> <%= @book.year %> </h4>
+<label>Author:</label>
+<h4><%= @book.author.name %></h4>
 
 <button>
     <a href="/books/<%= @book.id %>/edit">
