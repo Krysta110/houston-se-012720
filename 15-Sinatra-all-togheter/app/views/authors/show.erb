@@ -1,0 +1,24 @@
+<p> Single Author information </p>
+<label>Name:</label>
+<h4> <%= @author.name %> </h4>
+<label>Books:</label>
+<% @author.books.each do |book| %>
+    <li>
+        <a href="/books/<%= book.id %>">
+          <%= book.title %>
+        </a>
+      
+    </li>
+<% end %>
+
+<button>
+    <a href="/authors/<%= @author.id %>/edit">
+        Edit
+    </a>
+</button>
+
+<form action="/authors/<%= @author.id %>" method="post">
+<input type="hidden" name="_method" value="delete">
+
+<input type="submit" value="Delete Author"/>
+</form>

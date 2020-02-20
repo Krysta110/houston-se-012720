@@ -1,0 +1,19 @@
+<p> Single book information </p>
+<label>Title:</label>
+<h4> <%= @book.title %> </h4>
+<label>Year:</label>
+<h4> <%= @book.year %> </h4>
+<label>Author:</label>
+<h4><%= @book.author.name %></h4>
+
+<button>
+    <a href="/books/<%= @book.id %>/edit">
+        Edit
+    </a>
+</button>
+
+<form action="/books/<%= @book.id %>" method="post">
+<input type="hidden" name="_method" value="delete">
+
+<input type="submit" value="Delete Book"/>
+</form>
