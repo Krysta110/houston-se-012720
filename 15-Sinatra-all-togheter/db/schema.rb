@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_155246) do
+ActiveRecord::Schema.define(version: 2020_02_20_161319) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 2020_02_19_155246) do
     t.string "title"
     t.integer "year"
     t.integer "author_id"
+  end
+
+  create_table "drivers", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "passengers", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.integer "driver_id"
+    t.integer "passenger_id"
+    t.integer "miles"
   end
 
 end

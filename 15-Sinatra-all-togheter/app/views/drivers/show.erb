@@ -1,0 +1,22 @@
+<p> Single Driver information </p>
+<label>Name:</label>
+<h4> <%= @driver.name %> </h4>
+
+<!-- <label>Passengers:</label>
+<% @driver.passengers.each do |passenger| %>
+    <li>
+          <%= passenger.name %>
+      
+    </li>
+<% end %>
+-->
+
+<label>Rides: </label>
+<table style="border: 1px solid black">
+<% @driver.rides.each do |ride| %>
+    <tr>
+    <td>Name: <%=ride.passenger.name %></td>
+    <td>Miles: <%=ride.miles %></td>
+    </tr>
+<% end %>
+</table>

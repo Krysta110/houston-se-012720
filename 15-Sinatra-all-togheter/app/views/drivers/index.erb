@@ -1,0 +1,7 @@
+<ul> Drivers: 
+<% @drivers.each do |driver| %>
+    <a href="/drivers/<%= driver.id%>">
+        <li> <%= driver.name %> </li>
+    </a>
+<% end %>
+</ul>
