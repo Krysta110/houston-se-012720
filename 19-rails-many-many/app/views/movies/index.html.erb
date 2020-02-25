@@ -1,0 +1,11 @@
+<!-- <%= @temp %> -->
+
+<label>Movies: </label>
+<% @movies.each do |movie| %>
+    <li>
+    <!-- <%= movie.title %> -->
+    <!-- <%= link_to movie.title, "/movies/#{movie.id}"%> -->
+    <%= link_to movie.title, movie_path(movie)%>
+
+    </li>
+<% end %>
