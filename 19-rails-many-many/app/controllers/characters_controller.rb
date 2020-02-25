@@ -34,6 +34,6 @@ class CharactersController < ApplicationController
 
   private
   def character_params
-    params.require(:character).permit(:name, :movie_id)
+    params.require(:character).permit(:name, :movie_id, :actor_id)
   end
 end

@@ -1,16 +1,17 @@
-# Rails Associations (Many-Many)
+# Rails Associations (One-Many)
 
 ### LGs:
-* - [ ] Refresher on has_many and through
-* - [ ] Use Rails form helper methods that create an associated object
+* Refresher on has_many and belongs_to
+* Use Rails form helper methods that create an associated object
 
-#### Refresher on has_many and through
-* Movies has_many characters
-* Movies has_many actors through characters
+
+#### Refresher on has_many and belongs_to
+* Movie has many characters
+* Characters belongs to a Movie
+
+Task: Create Character model and controller
 
 #### Use Rails form helper methods that create an associated object
-* f.collection_check_boxes
-* params => actor_ids: [ ]
 
-
+Task: how to associate a Movie with a character
 

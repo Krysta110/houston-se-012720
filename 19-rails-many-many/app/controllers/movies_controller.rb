@@ -11,15 +11,18 @@ class MoviesController < ApplicationController
 
     def new
         @movie = Movie.new
+        @actors = Actor.all
     end
 
     def create
+        byebug
         movie = Movie.create(movies_params)
+
         redirect_to movie_path(movie.id)
     end
 
     def edit
-        
+        @actors = Actor.all
     end
 
     def update
@@ -39,7 +42,7 @@ class MoviesController < ApplicationController
     private
 
     def movies_params
-        params.require(:movie).permit(:title, :year)
+        params.require(:movie).permit(:title, :year, actor_ids: [])
     end
 
 end
