@@ -1,0 +1,27 @@
+<label> Movie Title: </label>
+<%= @movie.title %>
+<br/>
+<label> Movie release year: </label>
+<%= @movie.year %>
+
+<% @movie.characters.each do |character| %>
+<li>
+character: <%= character.name%>
+Actor: <%= character.actor.name%>
+<%= link_to "Edit Character", edit_character_path(character)%>
+</li>
+<% end %>
+
+<% @movie.actors.each do |actor| %>
+<li>
+Actor: <%= actor.name%>
+</li>
+<% end %>
+
+<%= form_with model: @movie, method: :delete do |f|  %>
+<%= f.submit "Delete Movie" %>
+<% end %>
+
+<!-- <%= form_with url:"/movies/#{@movie.id}" , method: :delete do |f|  %>
+<%= f.submit "Delete Movie" %>
+<% end %> -->
