@@ -1,0 +1,11 @@
+<h4>Name: <%= @student.name %> </h4>
+
+<h4>
+Instructor:<%= link_to @student.instructor.name, instructor_path(@student.instructor)%>
+</h4>
+
+<%= form_for @student, method: "delete" do |f|%>
+<%= f.submit "delete student"%>
+<%end%>
+
+<%= link_to "Edit student", edit_student_path%>
