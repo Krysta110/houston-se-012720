@@ -801,3 +801,204 @@ SystemExit (exit):
 (byebug):1:in `exit'
 (byebug):1:in `create'
 app/controllers/responses_controller.rb:39:in `create'
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateQuestions (20180925154745)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "correct_answer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180925154745"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAnswers (20180925154813)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "answers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "question_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180925154813"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateResponses (20180925154838)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "responses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer, "answer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180925154838"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-02 15:30:19.229113"], ["updated_at", "2020-03-02 15:30:19.229113"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "What was the name of the sea witch in the 1989 Disney film \"The Little Mermaid\"?"], ["created_at", "2020-03-02 15:30:29.643715"], ["updated_at", "2020-03-02 15:30:29.643715"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Ursula"], ["question_id", 1], ["created_at", "2020-03-02 15:30:29.666301"], ["updated_at", "2020-03-02 15:30:29.666301"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.3ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 1], ["updated_at", "2020-03-02 15:30:29.708434"], ["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Madam Mim"], ["question_id", 1], ["created_at", "2020-03-02 15:30:29.712712"], ["updated_at", "2020-03-02 15:30:29.712712"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Maleficent"], ["question_id", 1], ["created_at", "2020-03-02 15:30:29.716243"], ["updated_at", "2020-03-02 15:30:29.716243"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lady Tremaine"], ["question_id", 1], ["created_at", "2020-03-02 15:30:29.721143"], ["updated_at", "2020-03-02 15:30:29.721143"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.4ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "What is the first book of the Old Testament?"], ["created_at", "2020-03-02 15:30:29.727251"], ["updated_at", "2020-03-02 15:30:29.727251"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Genesis"], ["question_id", 2], ["created_at", "2020-03-02 15:30:29.731354"], ["updated_at", "2020-03-02 15:30:29.731354"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.3ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 5], ["updated_at", "2020-03-02 15:30:29.735478"], ["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Exodus"], ["question_id", 2], ["created_at", "2020-03-02 15:30:29.739574"], ["updated_at", "2020-03-02 15:30:29.739574"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Leviticus"], ["question_id", 2], ["created_at", "2020-03-02 15:30:29.743341"], ["updated_at", "2020-03-02 15:30:29.743341"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.2ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Numbers"], ["question_id", 2], ["created_at", "2020-03-02 15:30:29.746673"], ["updated_at", "2020-03-02 15:30:29.746673"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "What is the largest organ of the human body?"], ["created_at", "2020-03-02 15:30:29.750378"], ["updated_at", "2020-03-02 15:30:29.750378"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Skin"], ["question_id", 3], ["created_at", "2020-03-02 15:30:29.754250"], ["updated_at", "2020-03-02 15:30:29.754250"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.2ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 9], ["updated_at", "2020-03-02 15:30:29.757580"], ["id", 3]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Heart"], ["question_id", 3], ["created_at", "2020-03-02 15:30:29.760854"], ["updated_at", "2020-03-02 15:30:29.760854"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "large Intestine"], ["question_id", 3], ["created_at", "2020-03-02 15:30:29.764302"], ["updated_at", "2020-03-02 15:30:29.764302"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Liver"], ["question_id", 3], ["created_at", "2020-03-02 15:30:29.767614"], ["updated_at", "2020-03-02 15:30:29.767614"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "Who is the lead singer of the band Coldplay?"], ["created_at", "2020-03-02 15:30:29.771459"], ["updated_at", "2020-03-02 15:30:29.771459"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Chris Martin"], ["question_id", 4], ["created_at", "2020-03-02 15:30:29.775757"], ["updated_at", "2020-03-02 15:30:29.775757"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.3ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 13], ["updated_at", "2020-03-02 15:30:29.779915"], ["id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Chris Isaak"], ["question_id", 4], ["created_at", "2020-03-02 15:30:29.783132"], ["updated_at", "2020-03-02 15:30:29.783132"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Chris Wallace"], ["question_id", 4], ["created_at", "2020-03-02 15:30:29.786523"], ["updated_at", "2020-03-02 15:30:29.786523"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Chris Connelly"], ["question_id", 4], ["created_at", "2020-03-02 15:30:29.789884"], ["updated_at", "2020-03-02 15:30:29.789884"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "The element involved in making human blood red is which of the following?"], ["created_at", "2020-03-02 15:30:29.793088"], ["updated_at", "2020-03-02 15:30:29.793088"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Iron"], ["question_id", 5], ["created_at", "2020-03-02 15:30:29.796750"], ["updated_at", "2020-03-02 15:30:29.796750"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.3ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 17], ["updated_at", "2020-03-02 15:30:29.800651"], ["id", 5]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.2ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Copper"], ["question_id", 5], ["created_at", "2020-03-02 15:30:29.803727"], ["updated_at", "2020-03-02 15:30:29.803727"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Iridium"], ["question_id", 5], ["created_at", "2020-03-02 15:30:29.807285"], ["updated_at", "2020-03-02 15:30:29.807285"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Cobalt"], ["question_id", 5], ["created_at", "2020-03-02 15:30:29.810951"], ["updated_at", "2020-03-02 15:30:29.810951"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "What is the capital of India?"], ["created_at", "2020-03-02 15:30:29.814398"], ["updated_at", "2020-03-02 15:30:29.814398"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "New Delhi"], ["question_id", 6], ["created_at", "2020-03-02 15:30:29.818610"], ["updated_at", "2020-03-02 15:30:29.818610"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.2ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 21], ["updated_at", "2020-03-02 15:30:29.831571"], ["id", 6]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Bejing"], ["question_id", 6], ["created_at", "2020-03-02 15:30:29.835850"], ["updated_at", "2020-03-02 15:30:29.835850"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Montreal"], ["question_id", 6], ["created_at", "2020-03-02 15:30:29.840452"], ["updated_at", "2020-03-02 15:30:29.840452"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Tithi"], ["question_id", 6], ["created_at", "2020-03-02 15:30:29.845114"], ["updated_at", "2020-03-02 15:30:29.845114"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "What year was Super Mario Bros. released?"], ["created_at", "2020-03-02 15:30:29.850487"], ["updated_at", "2020-03-02 15:30:29.850487"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "1985"], ["question_id", 7], ["created_at", "2020-03-02 15:30:29.856864"], ["updated_at", "2020-03-02 15:30:29.856864"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.3ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 25], ["updated_at", "2020-03-02 15:30:29.861392"], ["id", 7]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.4ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "1983"], ["question_id", 7], ["created_at", "2020-03-02 15:30:29.865648"], ["updated_at", "2020-03-02 15:30:29.865648"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "1987"], ["question_id", 7], ["created_at", "2020-03-02 15:30:29.870132"], ["updated_at", "2020-03-02 15:30:29.870132"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "1986"], ["question_id", 7], ["created_at", "2020-03-02 15:30:29.874434"], ["updated_at", "2020-03-02 15:30:29.874434"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "When was the iPhone released?"], ["created_at", "2020-03-02 15:30:29.878512"], ["updated_at", "2020-03-02 15:30:29.878512"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "2007"], ["question_id", 8], ["created_at", "2020-03-02 15:30:29.883674"], ["updated_at", "2020-03-02 15:30:29.883674"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.3ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 29], ["updated_at", "2020-03-02 15:30:29.886891"], ["id", 8]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "2005"], ["question_id", 8], ["created_at", "2020-03-02 15:30:29.891127"], ["updated_at", "2020-03-02 15:30:29.891127"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "2006"], ["question_id", 8], ["created_at", "2020-03-02 15:30:29.894802"], ["updated_at", "2020-03-02 15:30:29.894802"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "2004"], ["question_id", 8], ["created_at", "2020-03-02 15:30:29.898696"], ["updated_at", "2020-03-02 15:30:29.898696"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "These two countries held a commonwealth from the 16th to 18th century."], ["created_at", "2020-03-02 15:30:29.901861"], ["updated_at", "2020-03-02 15:30:29.901861"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.5ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Poland and Lithuania"], ["question_id", 9], ["created_at", "2020-03-02 15:30:29.907101"], ["updated_at", "2020-03-02 15:30:29.907101"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuestion Update (0.3ms)[0m  [1m[33mUPDATE "questions" SET "correct_answer_id" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["correct_answer_id", 33], ["updated_at", "2020-03-02 15:30:29.912959"], ["id", 9]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Hutu and Rwanda"], ["question_id", 9], ["created_at", "2020-03-02 15:30:29.917263"], ["updated_at", "2020-03-02 15:30:29.917263"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "North Korea and South Korea"], ["question_id", 9], ["created_at", "2020-03-02 15:30:29.921582"], ["updated_at", "2020-03-02 15:30:29.921582"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswer Create (0.3ms)[0m  [1m[32mINSERT INTO "answers" ("content", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Bangladesh and Bhutan"], ["question_id", 9], ["created_at", "2020-03-02 15:30:29.926368"], ["updated_at", "2020-03-02 15:30:29.926368"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: Single arity template handlers are deprecated. Template handlers must
+now accept two parameters, the view object and the source for the view object.
+Change:
+  >> Coffee::Rails::TemplateHandler.call(template)
+To:
+  >> Coffee::Rails::TemplateHandler.call(template, source)
+ (called from <main> at /Users/vidhi.sharma/Documents/My-Cohorts/houston-se-012720/Lecture-Code/22-session-cookies/config/environment.rb:5)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" LIMIT ?[0m  [["LIMIT", 11]]
