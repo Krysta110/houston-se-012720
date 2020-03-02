@@ -16,6 +16,7 @@
 
 #### Explain that session is built on cookies
 
+* What is session? what is cookie?
 * Rails sessions helps solve this problem by following code:
 ```ruby
  def create
@@ -34,11 +35,10 @@
 end
 ```
 * Application tab show cookies
-* How cookies are part of the headers with the help of cycle
 * Cookies carry are session variables from request to request
 
 ##### TASK: Take a min and than explain in your own words:
-* What is session? what is cookies?
+* What is session? what is cookie?
 
 #### Implementing Session Variables
 
