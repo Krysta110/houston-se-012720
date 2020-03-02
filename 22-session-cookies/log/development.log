@@ -1301,3 +1301,314 @@ Processing by ResponsesController#new as HTML
 Completed 200 OK in 28ms (Views: 22.1ms | ActiveRecord: 1.8ms | Allocations: 14633)
 
 
+DEPRECATION WARNING: Single arity template handlers are deprecated. Template handlers must
+now accept two parameters, the view object and the source for the view object.
+Change:
+  >> Coffee::Rails::TemplateHandler.call(template)
+To:
+  >> Coffee::Rails::TemplateHandler.call(template, source)
+ (called from <main> at /Users/vidhi.sharma/Documents/My-Cohorts/houston-se-012720/Lecture-Code/22-session-cookies/config/environment.rb:5)
+Started GET "/random-question" for ::1 at 2020-03-02 10:45:59 -0600
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:14:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 1]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 23.5ms | Allocations: 10143)
+Completed 200 OK in 450ms (Views: 390.2ms | ActiveRecord: 7.5ms | Allocations: 324684)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:46:08 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iVWKKuiwTfCDuAJJtgX8Q8rbVVNpPkvTVsk1r2eE1EHg/GOkmkpfSlMlY+DGwxao75PRtiW8+kUmR7W2I9BXGQ==", "response"=>{"question_id"=>"1", "answer_id"=>"1"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:14:in `define_question'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mResponse Create (0.5ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 1], ["answer_id", 1], ["created_at", "2020-03-02 16:46:08.973143"], ["updated_at", "2020-03-02 16:46:08.973143"]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:26:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 18ms (ActiveRecord: 2.3ms | Allocations: 7738)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:46:09 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:14:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 1]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1287)
+Completed 200 OK in 31ms (Views: 22.5ms | ActiveRecord: 0.5ms | Allocations: 14690)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:46:21 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JBIvXKwyYxQ8XrA5CG2wNkamBvNh/ZJK2DbIaKwORPLfLQyB1vYuH0UuxiaCgdoJ6EmD+x9lfhnUjbHfMg5EOg==", "response"=>{"question_id"=>"1", "answer_id"=>"1"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:14:in `define_question'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mResponse Create (0.4ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 1], ["answer_id", 1], ["created_at", "2020-03-02 16:46:21.100857"], ["updated_at", "2020-03-02 16:46:21.100857"]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:26:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 16ms (ActiveRecord: 4.0ms | Allocations: 5897)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:46:21 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:14:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 5]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1281)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 0.5ms | Allocations: 14676)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:46:24 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L/gDOlkUUHVEIBLbbvyc9bQA416ZKWJWG+gNzFRm1t3UxyDnI9Adfj1QZMTkEPbKGu9mVuexjgUXU3R7ymbWFQ==", "response"=>{"question_id"=>"5", "answer_id"=>"18"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:14:in `define_question'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mResponse Create (0.6ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 5], ["answer_id", 18], ["created_at", "2020-03-02 16:46:24.352769"], ["updated_at", "2020-03-02 16:46:24.352769"]]
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:25:in `create'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:26:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 17ms (ActiveRecord: 3.6ms | Allocations: 5900)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:46:24 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:14:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 9]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1282)
+Completed 200 OK in 36ms (Views: 32.8ms | ActiveRecord: 0.5ms | Allocations: 14676)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:47:32 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 2]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 23.4ms | Allocations: 8362)
+Completed 200 OK in 94ms (Views: 52.8ms | ActiveRecord: 4.4ms | Allocations: 32681)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:47:40 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ypuSuoPlDy0/sXz33lefKVxvYqRG5s1NHeYXqOA/Gt2jMns08R8dl+8sHV6ukXXCeSfmQQpkfNttaJexpGuZhQ==", "response"=>{"question_id"=>"2", "answer_id"=>"7"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mResponse Create (1.5ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 2], ["answer_id", 7], ["created_at", "2020-03-02 16:47:40.446975"], ["updated_at", "2020-03-02 16:47:40.446975"]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:30:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 21ms (ActiveRecord: 4.6ms | Allocations: 7535)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:47:40 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 9]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1273)
+Completed 200 OK in 35ms (Views: 29.5ms | ActiveRecord: 0.7ms | Allocations: 16547)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:47:47 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nv+yRyscFD4jx6cFyAZpPO1PgxxCExrY6T+fIObczmDNwJGaUdhZNVq30RpC6gMDQ6AGFDyL9ovlhOaXeNzOqA==", "response"=>{"question_id"=>"9", "answer_id"=>"33"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mResponse Create (0.7ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 9], ["answer_id", 33], ["created_at", "2020-03-02 16:47:47.752333"], ["updated_at", "2020-03-02 16:47:47.752333"]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:30:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 18ms (ActiveRecord: 4.1ms | Allocations: 5924)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:47:47 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 7]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1267)
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.5ms | Allocations: 14665)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:47:53 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uxKZsWTtZHLK/XE5i5/3wqHNnOzt94esWFaWFDHdSupALbpsHikpebONByYBc539DyIZ5JNva/9U7e+jr91KIg==", "response"=>{"question_id"=>"7", "answer_id"=>"25"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mResponse Create (0.5ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 7], ["answer_id", 25], ["created_at", "2020-03-02 16:47:53.469321"], ["updated_at", "2020-03-02 16:47:53.469321"]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:30:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 14ms (ActiveRecord: 3.9ms | Allocations: 5914)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:47:53 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 5]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1266)
+Completed 200 OK in 83ms (Views: 78.8ms | ActiveRecord: 0.6ms | Allocations: 17348)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:48:22 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 7]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 20.7ms | Allocations: 8078)
+Completed 200 OK in 78ms (Views: 50.4ms | ActiveRecord: 5.4ms | Allocations: 31644)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:48:30 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ejZzUcjmmbyXKUJRWYS/6bNOjxXXh8jr5cZyDwtCzKATn5rfuhyLBke0I/gpQlUClgYL8JsFeX2VSPIWTxZP+A==", "response"=>{"question_id"=>"7", "answer_id"=>"25"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mResponse Create (0.6ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 7], ["answer_id", 25], ["created_at", "2020-03-02 16:48:30.301041"], ["updated_at", "2020-03-02 16:48:30.301041"]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:30:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 19ms (ActiveRecord: 4.5ms | Allocations: 7542)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:48:30 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 7]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1267)
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.6ms | Allocations: 14679)
+
+
+Started POST "/responses" for ::1 at 2020-03-02 10:48:34 -0600
+Processing by ResponsesController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ner68O2qbsQfhj9tIAvFftfcH8O9d9fTbrdTar6daxJm1dktl24jz2b2SXKq569BeTOay8PvO4BiDCrdIJ1r2g==", "response"=>{"question_id"=>"7", "answer_id"=>"27"}, "commit"=>"Submit"}
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.0ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mResponse Create (0.4ms)[0m  [1m[32mINSERT INTO "responses" ("question_id", "answer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["question_id", 7], ["answer_id", 27], ["created_at", "2020-03-02 16:48:34.556125"], ["updated_at", "2020-03-02 16:48:34.556125"]]
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/responses_controller.rb:29:in `create'
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:30:in `create'
+Redirected to http://localhost:3000/random-question
+Completed 200 OK in 12ms (ActiveRecord: 3.7ms | Allocations: 5888)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:48:34 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 6]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2142)
+Completed 200 OK in 34ms (Views: 26.4ms | ActiveRecord: 1.1ms | Allocations: 17365)
+
+
+Started GET "/random-question" for ::1 at 2020-03-02 10:49:54 -0600
+Processing by ResponsesController#new as HTML
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" ORDER BY RANDOM() LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/responses_controller.rb:18:in `define_question'
+  Rendering responses/new.html.erb within layouts/application
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = ? ORDER BY RANDOM()[0m  [["question_id", 1]]
+  ↳ app/views/responses/new.html.erb:8
+  Rendered responses/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1266)
+Completed 200 OK in 19ms (Views: 16.8ms | ActiveRecord: 0.4ms | Allocations: 14648)
+
+

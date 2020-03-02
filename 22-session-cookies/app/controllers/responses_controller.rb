@@ -1,6 +1,6 @@
 class ResponsesController < ApplicationController
 
-    before_action :define_question, :define_response, :number_correct
+    before_action :define_question, :define_response, :number_correct, :display_message
 
     def new
 
@@ -8,6 +8,10 @@ class ResponsesController < ApplicationController
 
     def number_correct
         @number_correct = session[:number_correct]
+    end
+
+    def display_message
+        @message = flash[:message]
     end
 
     def define_question
@@ -25,9 +29,9 @@ class ResponsesController < ApplicationController
         response = Response.create(response_params)
         if response.question.correct_answer == response.answer
             session[:number_correct] = session[:number_correct] + 1
-            puts "Correct"
+            flash[:message] =  "Correct"
         else
-            puts "Incorrect"
+            flash[:message] =  "Incorrect"
         end
         puts "Answered Correctly: #{session[:number_correct]}"
         redirect_to '/random-question'
