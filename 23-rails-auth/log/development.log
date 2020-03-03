@@ -1,0 +1,3062 @@
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200303164703)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200303164703"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-03 16:48:04.513628"], ["updated_at", "2020-03-03 16:48:04.513628"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "Vidhi03"], ["password_digest", "$2a$12$SgaS2mXGSWu/HPfuwjmBROH7OazDCOkw4/iY4JPmdEGngBfH2NoPq"], ["created_at", "2020-03-03 16:49:21.582935"], ["updated_at", "2020-03-03 16:49:21.582935"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users/new" for ::1 at 2020-03-03 10:56:21 -0600
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 40.7ms | Allocations: 5469)
+Completed 200 OK in 224ms (Views: 204.6ms | ActiveRecord: 1.0ms | Allocations: 25955)
+
+
+Started GET "/users/new" for ::1 at 2020-03-03 10:57:08 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 26.0ms | Allocations: 3349)
+Completed 200 OK in 46ms (Views: 40.2ms | ActiveRecord: 0.0ms | Allocations: 5860)
+
+
+Started POST "/users" for ::1 at 2020-03-03 10:57:23 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"jmmo8gyX86CxCESiUehxbsnX1blV93+UetOvIznDUu/VrJQMUW2jcAyEMn33ScAEBipQWMoFJ5bx6C6wCtZbnQ==", "user"=>{"username"=>"abc123", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 88856ms (ActiveRecord: 0.0ms | Allocations: 211239)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:9:in `create'
+Started GET "/users/new" for ::1 at 2020-03-03 10:58:57 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 150.6ms | Allocations: 673170)
+Completed 200 OK in 676ms (Views: 284.9ms | ActiveRecord: 25.5ms | Allocations: 2503408)
+
+
+Started POST "/users" for ::1 at 2020-03-03 10:59:23 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"8avdrulUwJ3NI5xAwa1yuryQiYpVsRmZhBq1GZI9K++qbuFQtK6QTXCv6p9nDMPQc20Ma8pDQZsPITSKoSginQ==", "user"=>{"username"=>"abc123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 87720ms (ActiveRecord: 0.0ms | Allocations: 270739)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:9:in `create'
+Started GET "/users/new" for ::1 at 2020-03-03 11:04:33 -0600
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 115.4ms | Allocations: 708929)
+Completed 200 OK in 475ms (Views: 220.5ms | ActiveRecord: 46.6ms | Allocations: 2676808)
+
+
+Started POST "/users" for ::1 at 2020-03-03 11:04:47 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"KR0aNkV+ls3RrstoMfjZMbUPGETDi/Sw4HADYHr6NSJy2CbIGITGHWwivbeXWWhbevKdpVx5rLJrS4LzSe88UA==", "user"=>{"username"=>"abc123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (6.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "abc123"], ["password_digest", "$2a$12$jdrARj5s/5eYkkHvU7yh8.6X7bXmcaxKuSMKXrkQHKu58aYMKE.Li"], ["created_at", "2020-03-03 17:04:47.822696"], ["updated_at", "2020-03-03 17:04:47.822696"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 2867ms (ActiveRecord: 12.6ms | Allocations: 15961318)
+
+
+  
+NoMethodError (undefined method `user_url' for #<UsersController:0x00007ff3d06e5a98>
+Did you mean?  users_url):
+  
+app/controllers/users_controller.rb:13:in `create'
+Started GET "/users/new" for ::1 at 2020-03-03 11:06:00 -0600
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 115.0ms | Allocations: 715979)
+Completed 200 OK in 528ms (Views: 216.1ms | ActiveRecord: 18.2ms | Allocations: 2647710)
+
+
+Started POST "/users" for ::1 at 2020-03-03 11:06:20 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"dqJ61lUv7lkg0/DzqxAo4BaGxQFPM1eaN8nISs9LKk0tZ0YoCNW+iZ1fhiwNsZmK2XtA4NDBD5i88knZ/F4jPw==", "user"=>{"username"=>"xyz123", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "xyz123"], ["password_digest", "$2a$12$SvgRm263ieZ00bKr1cQvOeajoGB1l6I/iW697GRo70i0jBN1.bGJG"], ["created_at", "2020-03-03 17:06:21.067486"], ["updated_at", "2020-03-03 17:06:21.067486"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 436ms (ActiveRecord: 6.4ms | Allocations: 1193114)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 11:06:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 16.0ms | Allocations: 92154)
+Completed 200 OK in 235ms (Views: 121.0ms | ActiveRecord: 2.7ms | Allocations: 1538420)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:23:39 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 22.4ms | Allocations: 3956)
+Completed 200 OK in 127ms (Views: 121.7ms | ActiveRecord: 0.0ms | Allocations: 20754)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:23:46 -0600
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2020-03-03 11:24:44 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 19.2ms | Allocations: 2072)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms | Allocations: 3919)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:24:57 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"IGihHZVCfdYh8SPLWsXHZZwfWr2hzLuN9IDCn38KoppsNFCq6ytzKa2kNpk/QtRUdFzHwo7NZhuZDvNPWj5myg==", "username"=>"xyz123", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "xyz123"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "xyz123"], ["LIMIT", 1]]
+  ↳ (byebug):1:in `create'
+Completed 500 Internal Server Error in 121385ms (ActiveRecord: 0.9ms | Allocations: 58555)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/sessions_controller.rb:7:in `create'
+Started GET "/login" for ::1 at 2020-03-03 11:28:48 -0600
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 49.2ms | Allocations: 216078)
+Completed 200 OK in 160ms (Views: 140.2ms | ActiveRecord: 0.0ms | Allocations: 798420)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:29:01 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"9DrwWRecE4MOUJ46WEl5XaW/5SvQ3Z4kZxeOHvOI5We4ZgHuafUdfIIFi2g9zmpsTfx4VP/cQ7IKmb/O1rwhNw==", "username"=>"xyz123", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "xyz123"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 756ms (ActiveRecord: 30.6ms | Allocations: 1536422)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 11:29:02 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 28852)
+Completed 200 OK in 231ms (Views: 139.6ms | ActiveRecord: 1.8ms | Allocations: 1020977)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:29:06 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 52.6ms | Allocations: 233147)
+Completed 200 OK in 168ms (Views: 151.8ms | ActiveRecord: 0.0ms | Allocations: 824864)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:29:15 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"5bid7G2UGdbDDxTGIUsVUoJNSIxT/n2jt2EAhOBRSk2p5GxbE/0XKU9aAZREzAZjag7V83z/oDXa7zFUxWWOHQ==", "username"=>"xyz12", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "xyz12"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 470ms (ActiveRecord: 1.2ms | Allocations: 2438739)
+
+
+  
+NoMethodError (undefined method `authenticate' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:9:in `create'
+Started GET "/login" for ::1 at 2020-03-03 11:30:06 -0600
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 47.5ms | Allocations: 233154)
+Completed 200 OK in 203ms (Views: 174.9ms | ActiveRecord: 0.0ms | Allocations: 861842)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:30:17 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"1RRuQwaPC25fs7kS4q7XHx1WnWkqn3nrIYEhoohCB9iZSJ/0eOYFkdPmrECHKcQu9RUAFgWepH1MDxByrXbDiA==", "username"=>"xyz12", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "xyz12"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 195ms (ActiveRecord: 15.3ms | Allocations: 865488)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:30:18 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 52.0ms | Allocations: 233143)
+Completed 200 OK in 156ms (Views: 132.9ms | ActiveRecord: 0.0ms | Allocations: 827045)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:31:04 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Qd1DeH7fqTqUj+oxBj1zTHPYhsxA8+8/JIOKifz/SCUNgbLPALanxRja/2NjumB9m5sbs2/yMqlJDbtZ2cuMdQ==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 87ms (ActiveRecord: 6.5ms | Allocations: 396633)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:31:04 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 47.2ms | Allocations: 233152)
+Completed 200 OK in 159ms (Views: 133.6ms | ActiveRecord: 0.0ms | Allocations: 825777)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:31:15 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"LdWPoVaZ9b9LsogewOtnzG1lEJuJY3FG3OEw42ikXwNhiX4WKPD7QMfnnUylbHT9hSaN5KZirNCxbwEzTZCbUw==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 90ms (ActiveRecord: 1.5ms | Allocations: 396627)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:31:15 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 48.2ms | Allocations: 233146)
+Completed 200 OK in 157ms (Views: 138.3ms | ActiveRecord: 0.0ms | Allocations: 827048)
+
+
+Started GET "/users/new" for ::1 at 2020-03-03 11:31:20 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 147.5ms | Allocations: 659089)
+Completed 200 OK in 397ms (Views: 264.0ms | ActiveRecord: 6.8ms | Allocations: 1899884)
+
+
+Started POST "/users" for ::1 at 2020-03-03 11:31:50 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"nW5OIq7R19Ev+YpwrSe/xAGxr9qHfkUOU1gQxFIZr63Gq3Lc8yuHAZJ1/K8Lhg6uzkwqOxiMHQzYY5FXYQym3w==", "user"=>{"username"=>"vidhi03", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 359ms (ActiveRecord: 0.0ms | Allocations: 606845)
+
+
+Started GET "/users/new" for ::1 at 2020-03-03 11:31:51 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 85.9ms | Allocations: 535656)
+Completed 200 OK in 241ms (Views: 218.7ms | ActiveRecord: 0.0ms | Allocations: 1145913)
+
+
+Started POST "/users" for ::1 at 2020-03-03 11:32:04 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"O3JizdIjXbr8RUJ8YWDw01rleyHCqNxjWPuV/oUE2zdgt14zj9kNakHJNKPHwUG5lRj+wF1ahGHTwBRtthHSRQ==", "user"=>{"username"=>"vidhi03", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "vidhi03"], ["password_digest", "$2a$12$4U.XfH/I4DBxnBxXn3nSJeRvPY0iZyKnzwPYrxs94ilKp4V.jCquq"], ["created_at", "2020-03-03 17:32:05.045598"], ["updated_at", "2020-03-03 17:32:05.045598"]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 417ms (ActiveRecord: 7.6ms | Allocations: 964784)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:32:05 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 12109)
+Completed 200 OK in 189ms (Views: 134.5ms | ActiveRecord: 2.0ms | Allocations: 1272504)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 11:32:15 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (15.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 13000)
+Completed 200 OK in 234ms (Views: 118.4ms | ActiveRecord: 15.6ms | Allocations: 866619)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 11:34:22 -0600
+  [1m[35m (7.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 404 Not Found in 224ms (ActiveRecord: 40.3ms | Allocations: 706620)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:20:in `show'
+Started GET "/login" for ::1 at 2020-03-03 11:34:38 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 53.6ms | Allocations: 250223)
+Completed 200 OK in 205ms (Views: 190.4ms | ActiveRecord: 0.0ms | Allocations: 924084)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:34:46 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Nu2D+M+TMxmQnetIF8KDu0BqpuVKuhrh96NGti05BOJ6sXJPsfo95hzI/hpyRZCKqCk7mmW7x3eaLXdmCA3Asg==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 440ms (ActiveRecord: 2.0ms | Allocations: 1020229)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:34:46 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 47.5ms | Allocations: 250221)
+Completed 200 OK in 155ms (Views: 126.4ms | ActiveRecord: 0.0ms | Allocations: 887899)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:34:59 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"gdUs92NT01t+kXPW0p6pxB6D3M3t6A51R75G7fINl2PNid1AHTrdpPLEZoS3Gbr19sBBssLp0+MqMHc91zlTMw==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:7:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 352ms (ActiveRecord: 1.2ms | Allocations: 531069)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:35:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 13001)
+Completed 200 OK in 153ms (Views: 90.6ms | ActiveRecord: 1.6ms | Allocations: 982568)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 11:36:10 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 13000)
+Completed 200 OK in 145ms (Views: 89.8ms | ActiveRecord: 2.2ms | Allocations: 858899)
+
+
+Started GET "/users/2" for ::1 at 2020-03-03 11:36:16 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 13000)
+Completed 200 OK in 169ms (Views: 107.3ms | ActiveRecord: 1.0ms | Allocations: 858906)
+
+
+Started GET "/users/22" for ::1 at 2020-03-03 11:36:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 13000)
+Completed 200 OK in 158ms (Views: 91.0ms | ActiveRecord: 1.8ms | Allocations: 858449)
+
+
+Started GET "/users/22" for ::1 at 2020-03-03 11:36:59 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+Completed 404 Not Found in 41ms (ActiveRecord: 0.0ms | Allocations: 144355)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/users_controller.rb:20:in `show'
+Started GET "/users/22" for ::1 at 2020-03-03 11:42:15 -0600
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 32ms (ActiveRecord: 0.0ms | Allocations: 211082)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:18 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 29ms (ActiveRecord: 0.0ms | Allocations: 198297)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:18 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 42ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:18 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 30ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:18 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 39ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:18 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 61ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:18 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 31ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:18 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 45ms (ActiveRecord: 0.0ms | Allocations: 202152)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:19 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 38ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:19 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 41ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:19 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 34ms (ActiveRecord: 0.0ms | Allocations: 197950)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:19 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 36ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:19 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 55ms (ActiveRecord: 0.0ms | Allocations: 202020)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:19 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 47ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:19 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:20 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 33ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:20 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 41ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:20 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 0.0ms | Allocations: 205131)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:20 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 104ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:20 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 32ms (ActiveRecord: 0.0ms | Allocations: 197123)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:21 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 28ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:21 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 39ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:21 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:21 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 38ms (ActiveRecord: 0.0ms | Allocations: 206267)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 44ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 36ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 36ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 28ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:22 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 41ms (ActiveRecord: 0.0ms | Allocations: 198753)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:23 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 39ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:23 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 41ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:23 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 27ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:23 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:23 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 38ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:23 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 31ms (ActiveRecord: 0.0ms | Allocations: 197641)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:23 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 33ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:24 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 34ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:29 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 61ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:29 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 33ms (ActiveRecord: 0.0ms | Allocations: 196948)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:29 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 40ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:29 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 39ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:29 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 32ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:29 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 40ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:30 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 30ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:30 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 45ms (ActiveRecord: 0.0ms | Allocations: 197846)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:30 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:30 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 39ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:30 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 38ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:30 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 47ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:30 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:31 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 33ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:31 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 29ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:31 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 34ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:31 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:31 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 29ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:31 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 38ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:42:31 -0600
+Processing by SessionsController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 34ms (ActiveRecord: 0.0ms | Allocations: 196339)
+
+
+Started GET "/users/new" for ::1 at 2020-03-03 11:44:05 -0600
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ArgumentError (Before process_action callback :autenticated has not been defined):
+  
+app/controllers/users_controller.rb:2:in `<class:UsersController>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/new" for ::1 at 2020-03-03 11:44:09 -0600
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 654ms (ActiveRecord: 0.0ms | Allocations: 2321278)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:44:13 -0600
+  
+ArgumentError (Before process_action callback :autenticated has not been defined):
+  
+app/controllers/sessions_controller.rb:2:in `<class:SessionsController>'
+app/controllers/sessions_controller.rb:1:in `<main>'
+Started GET "/users/22" for ::1 at 2020-03-03 11:45:08 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"22"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 40ms (ActiveRecord: 0.0ms | Allocations: 211949)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:45:10 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 49.4ms | Allocations: 233486)
+Completed 200 OK in 178ms (Views: 160.1ms | ActiveRecord: 0.0ms | Allocations: 919737)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:45:25 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"grquQKdTDz/ubP5fS7CFKYNnOKZUHUn5tmsYiBe7K2EevrUNX0oC1b6SasRflljgbitYJ+rjIvEFNUWlLxA9xg==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 679ms (ActiveRecord: 35.8ms | Allocations: 1647678)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:45:26 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `authenticated'
+  [1m[36mCACHE User Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 13001)
+Completed 200 OK in 251ms (Views: 121.1ms | ActiveRecord: 5.6ms | Allocations: 1131051)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:45:57 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `authenticated'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+Completed 200 OK in 43870ms (Views: 4.2ms | ActiveRecord: 9.8ms | Allocations: 1512715)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:47:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 278892ms (ActiveRecord: 0.0ms | Allocations: 148939)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:51:38 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1947)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 3812)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:51:49 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"yxBLLacVI0wbhtwO+CB+AJ+5Ol3tYbfdwnSfbslhl3vOBGT/hDz+oRrLz8olE7W8ONRE6Ycu3zY3PjGnjIA5xA==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 291ms (ActiveRecord: 0.8ms | Allocations: 4847)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:51:49 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 8)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 3076)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:52:26 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2065)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 3879)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:56:46 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 340)
+Completed 200 OK in 21ms (Views: 8.0ms | ActiveRecord: 1.1ms | Allocations: 7887)
+
+
+Started DELETE "/logout" for ::1 at 2020-03-03 11:56:49 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hZa87/Y5ChQBwyBQ/x+IpM0XAROS3KI/uDLsiY5mUmLGYWddI2n0gcdzSjHx0VzP5a7QDuyXJpw5ukbExcmdtA==", "commit"=>"logout"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+No template found for SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 6ms (ActiveRecord: 0.4ms | Allocations: 2218)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:57:34 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 264)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:57:34 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 2256)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 4494)
+
+
+Started GET "/users/new" for ::1 at 2020-03-03 11:57:39 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1334)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 3145)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:57:54 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 273)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:57:54 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2063)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms | Allocations: 3729)
+
+
+Started POST "/login" for ::1 at 2020-03-03 11:58:03 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"jUZud+/kmF7lQ0ju47atBZb+034OWd7cv/8F0pqyhUuIUkGlzM1Fs+QOWyo+hWa5MZOtymQWtjdKtasb31Mr9A==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 282ms (ActiveRecord: 0.2ms | Allocations: 1029)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:58:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 179)
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 2930)
+
+
+Started DELETE "/logout" for ::1 at 2020-03-03 11:58:05 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"t58puVPRcWBF7od6SHAivRcgZjeAu7/FuWnWYDq6x+n0aPILhoGP9YNe7RtGvvbWP5m3Kv7wO2Y44XwtcRUIPw==", "commit"=>"logout"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+No template found for SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.1ms | Allocations: 851)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 11:58:40 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 271)
+
+
+Started GET "/login" for ::1 at 2020-03-03 11:58:40 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2067)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 3727)
+
+
+Started POST "/login" for ::1 at 2020-03-03 12:00:08 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"0IVDbXqIsYFaavWClHFi3U+p9G5svR4XvjCsPccYXTHVkWy/WaFsbFsn5kZJQqlh6MSK2gbydvxLegL0gvnzjg==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 262ms (ActiveRecord: 0.9ms | Allocations: 4835)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:00:09 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 183)
+Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 3246)
+
+
+Started DELETE "/logout" for ::1 at 2020-03-03 12:00:11 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"i+ubAIY2YTMXHy0j19QZErVZRmfMN0ITM4pHceBlyDDIHECyU2afptGvR0LZGs15neCXerJ8xrCyAu08q8oH5g==", "commit"=>"logout"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 815)
+
+
+Started GET "/login" for ::1 at 2020-03-03 12:00:11 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2064)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 3881)
+
+
+Started GET "/users/new" for ::1 at 2020-03-03 12:01:49 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1070)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 2746)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:01:50 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 275)
+
+
+Started GET "/login" for ::1 at 2020-03-03 12:01:50 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 2062)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms | Allocations: 3722)
+
+
+Started POST "/login" for ::1 at 2020-03-03 12:01:58 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"BiK1Fuq3yhRIc8zVmytIXFfqrv+V0uzO/iiTRPEvZswDNprEyZ4X+Uk+3xFGGIPg8IfQS/+dhCULYj2NtM7Icw==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 267ms (ActiveRecord: 0.4ms | Allocations: 874)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:01:58 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 179)
+Completed 200 OK in 10ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 2928)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 12:02:01 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 179)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.1ms | Allocations: 2932)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 12:04:02 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 11ms (ActiveRecord: 0.8ms | Allocations: 4681)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 788)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 784)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 790)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 789)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 793)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 22ms (ActiveRecord: 0.8ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 785)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 790)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms | Allocations: 785)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 780)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 789)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 781)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 789)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 792)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 788)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 792)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 788)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 784)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 785)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 785)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 791)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 789)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 782)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 785)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 789)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:04 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 785)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 782)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 780)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 788)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 780)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 784)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 791)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 780)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms | Allocations: 784)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 8ms (ActiveRecord: 0.5ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms | Allocations: 789)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:11 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 785)
+
+
+Started GET "/login" for ::1 at 2020-03-03 12:04:34 -0600
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 24.8ms | Allocations: 3929)
+Completed 200 OK in 57ms (Views: 55.6ms | ActiveRecord: 0.0ms | Allocations: 9836)
+
+
+Started POST "/login" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"aiL5B1rvl1/H5wDZ7+5CxM2o4udMHNWLL5XF6HZnWSFvNtbVecZKssaqEx0y3Yl4asWcUyZTvWDa32shM4b3ng==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 312ms (ActiveRecord: 2.1ms | Allocations: 5361)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 38ms (ActiveRecord: 0.2ms | Allocations: 956)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 795)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 791)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 790)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 790)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 784)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 784)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 790)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms | Allocations: 789)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 801)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 788)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 787)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 783)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 780)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 786)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:04:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 12ms (ActiveRecord: 0.4ms | Allocations: 783)
+
+
+Started POST "/users/4" for ::1 at 2020-03-03 12:06:22 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [POST] "/users/4"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2020-03-03 12:06:32 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 2093)
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 3992)
+
+
+Started POST "/login" for ::1 at 2020-03-03 12:06:42 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"mi3FoO8AoYfqAJ4KwEv3LQT2RnuvJEPxBryX3ccyDpifOepyzCl8autNjc4deDyRo5s4z8VrKxrz9jkUgtOgJw==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 269ms (ActiveRecord: 1.1ms | Allocations: 4917)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms | Allocations: 940)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 771)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:42 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms | Allocations: 797)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms | Allocations: 773)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 768)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 773)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:42 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 771)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 10ms (ActiveRecord: 0.4ms | Allocations: 775)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 772)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 771)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms | Allocations: 771)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 768)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 770)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 774)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 777)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 769)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 772)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 771)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:06:43 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 772)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:20 -0600
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 23ms (ActiveRecord: 1.0ms | Allocations: 5653)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:20 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1195)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1196)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1187)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1195)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1209)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1184)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1195)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1189)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1188)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1195)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1188)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1208)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1192)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1194)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 17ms (ActiveRecord: 0.2ms | Allocations: 1198)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1185)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1200)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1211)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1188)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1186)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1189)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1195)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1189)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1191)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1189)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1192)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1214)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1189)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1192)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1189)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms | Allocations: 1191)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1200)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1188)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1195)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1198)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1196)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1192)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1192)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1191)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 1189)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 20ms (ActiveRecord: 0.2ms | Allocations: 1194)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1190)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1191)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:29 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1193)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:14:41 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 488)
+Completed 200 OK in 41ms (Views: 14.2ms | ActiveRecord: 0.6ms | Allocations: 11044)
+
+
+Started DELETE "/logout" for ::1 at 2020-03-03 12:14:45 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XiVc0s0vZ+9nM61c2dbh6adGQq9d+SnpX+4eg+4ReScd0odgGH+ZeqGDxz3XGDWCj/+TsiOyrUreZrTOpb628Q==", "commit"=>"logout"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+No template found for SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 4ms (ActiveRecord: 0.1ms | Allocations: 2228)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:15:10 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 349)
+
+
+Started GET "/login" for ::1 at 2020-03-03 12:15:10 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 18.4ms | Allocations: 3737)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms | Allocations: 6028)
+
+
+Started POST "/login" for ::1 at 2020-03-03 12:15:16 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"mngefZ4ono4lQbkomlg2AT+kO2QggjSyLKXLRvRzJHyfbDGvvQFDYyQMquxHa/29mMlF0ErNXFnZ72WPsZKKww==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 231ms (ActiveRecord: 0.6ms | Allocations: 4805)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 12:15:16 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 184)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 3210)
+
+
+Started DELETE "/logout" for ::1 at 2020-03-03 12:15:18 -0600
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ArCrq1k1/eu8FchvnwZavRd+6MCqrY8KP+E5US+tpQ5BR3AZjGUDfnqlog6RyI7WP8c53dTmC6m+aZMcZAJq2A==", "commit"=>"logout"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+No template found for SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 16987ms (ActiveRecord: 0.1ms | Allocations: 56709)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 13:10:43 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+Redirected to http://localhost:3000/login
+Filter chain halted as :authenticated rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 340)
+
+
+Started GET "/login" for ::1 at 2020-03-03 13:10:44 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 2262)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 4882)
+
+
+Started POST "/login" for ::1 at 2020-03-03 13:10:54 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ewR8fiU5WVey/Vk7wCN04gZoZdIZvDwm8Ycoj4MNPXB+EFOsBhCEurOwSv8dEL9eoQUbZnPzVM0EzYZGxuyTzw==", "username"=>"vidhi03", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vidhi03"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 228ms (ActiveRecord: 0.2ms | Allocations: 4459)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 13:10:54 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 12768ms (ActiveRecord: 0.1ms | Allocations: 3094)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 13:11:07 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 44516ms (ActiveRecord: 0.1ms | Allocations: 4007)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 13:11:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Completed 500 Internal Server Error in 9048ms (ActiveRecord: 0.2ms | Allocations: 7248)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:22:in `show'
+Started GET "/users/3" for ::1 at 2020-03-03 13:12:06 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Completed 500 Internal Server Error in 37145ms (ActiveRecord: 0.7ms | Allocations: 171340)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:22:in `show'
+Started GET "/users/3" for ::1 at 2020-03-03 13:12:43 -0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Completed 500 Internal Server Error in 74717ms (ActiveRecord: 0.8ms | Allocations: 238800)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:22:in `show'
+Started GET "/users/3" for ::1 at 2020-03-03 13:14:13 -0600
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5944ms (ActiveRecord: 12.6ms | Allocations: 1336461)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 13:14:21 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Completed 500 Internal Server Error in 7561ms (ActiveRecord: 0.1ms | Allocations: 7412)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:22:in `show'
+Started GET "/users/4" for ::1 at 2020-03-03 13:16:16 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Completed 500 Internal Server Error in 77803ms (ActiveRecord: 9.9ms | Allocations: 1257703)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `show'
+app/controllers/users_controller.rb:22:in `show'
+Started GET "/users/4" for ::1 at 2020-03-03 13:37:01 -0600
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 491)
+Completed 200 OK in 5912ms (Views: 12.7ms | ActiveRecord: 0.7ms | Allocations: 49106)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 13:37:13 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 5762ms (ActiveRecord: 0.1ms | Allocations: 3755)
+
+
+Started GET "/users/3" for ::1 at 2020-03-03 13:37:18 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 1092ms (ActiveRecord: 0.1ms | Allocations: 3644)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 13:37:20 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 181)
+Completed 200 OK in 2263ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 5838)
+
+
+Started GET "/users/5" for ::1 at 2020-03-03 13:41:31 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 4401ms (ActiveRecord: 0.3ms | Allocations: 3675)
+
+
+Started GET "/users/4" for ::1 at 2020-03-03 13:41:36 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 180)
+Completed 200 OK in 830ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 5778)
+
+
+Started DELETE "/logout" for ::1 at 2020-03-03 13:42:06 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jp12XQtw3mFqFpvtYASJPaPCiNbOB9G8HtwElxhkt0DNaq3v3iAg9Kym8Yxuyl1Wi3tZy7BMVR+fVK7aU8t4lg==", "commit"=>"logout"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `current_user'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 27ms (ActiveRecord: 0.8ms | Allocations: 4710)
+
+
+Started GET "/login" for ::1 at 2020-03-03 13:42:06 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 3743)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 5983)
+
+
