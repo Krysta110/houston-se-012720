@@ -38,6 +38,12 @@
             case "alert":
                 alert("Are you sure??")
                 break
+            case "log":
+                console.log("Are you sure??")
+                break
+            case "error":
+                console.error("Are you sure??")
+            break
             default: 
                 console.log("clicked somewhere else!!!!")
         }
