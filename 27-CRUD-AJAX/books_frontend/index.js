@@ -44,3 +44,36 @@ function showBooks(bookArray) {
 fetch("http://localhost:3000/books")
 .then(res => res.json())
 .then(books => showBooks(books)) 
+
+const form = document.getElementById('new-book')
+
+form.addEventListener("submit", () => {
+  event.preventDefault()
+
+  // debugger
+  const t = document.getElementById('book-title').value
+  const a = document.getElementById('book-author').value
+  const cover = document.getElementById('book-cover').value
+
+  fetch("http://localhost:3000/books", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      title: t,
+      //title: title,
+      //title,
+      author: a,
+      read: false,
+      img: cover
+    })
+  })
+  .then(res => res.json())
+  .then(newBook => { 
+    addBook(newBook)
+    event.target.reset() //pessimistic rendering
+  })
+
+  // event.target.reset() //optimistic rendering
+})
