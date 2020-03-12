@@ -18,13 +18,15 @@
       "id": 3,
       "title": "White Teeth",
       "author": "Zadie Smith",
-      "img": "https://images-na.ssl-images-amazon.com/images/I/412BMH3wiIL._SX322_BO1,204,203,200_.jpg"
+      "img": "https://images-na.ssl-images-amazon.com/images/I/412BMH3wiIL._SX322_BO1,204,203,200_.jpg",
+      "read": true
     },
     {
       "id": 4,
       "author": "Zadie Smith",
       "img": "https://images-na.ssl-images-amazon.com/images/I/41oS2tKs2TL._SX324_BO1,204,203,200_.jpg",
-      "title": "On Beauty"
+      "title": "On Beauty",
+      "read": true
     },
     {
       "id": 5,
@@ -56,20 +58,6 @@
       "read": false,
       "img": "https://knowledgequest.aasl.org/wp-content/uploads/2015/01/books.png",
       "id": 9
-    },
-    {
-      "title": "test",
-      "author": "unknown",
-      "read": false,
-      "img": "https://knowledgequest.aasl.org/wp-content/uploads/2015/01/books.png",
-      "id": 10
-    },
-    {
-      "title": "TESTING",
-      "author": "flatiron",
-      "read": false,
-      "img": "https://knowledgequest.aasl.org/wp-content/uploads/2015/01/books.png",
-      "id": 11
     }
   ]
 }
