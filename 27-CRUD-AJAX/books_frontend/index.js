@@ -82,6 +82,7 @@ function showBooks(bookArray) {
 fetch("http://localhost:3000/books")
 .then(res => res.json())
 .then(books => showBooks(books)) 
+.catch(errors => console.log(errors))// catching errors
 
 
 //create a new book
