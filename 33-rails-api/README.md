@@ -1,28 +1,18 @@
-# rails-students
+# Rails API
 
-This is a practice project to help prepare you for the code challenge.
+---
+## LGs:
+- [ ] Return RESTful responses from a Rails backend
+    * Render JSON data from an endpoint
+- [ ] Use serializer to send response back
 
-# Objectives
-+ MVC
-+ REST
-+ Form/Form Helpers
-+ ActiveRecord
-+ Validations
+---
+#### Return RESTful responses from a Rails backend
+* Render JSON data from end point
+    * render JSON and use include
+* make a fetch request from front-end
 
-# Deliverables:
-
-* The ability to create, read, update and delete **Instructor**
-* Instructor will have a name
-* The ability to create, read, update and delete **Student**
-* Student will have name, major and age
-* The ability to select one instructor for a student (an instructor can have any number of students). When you create a new student or update an existing student.
-* Make sure instructor and student is not created without the names.
-* Make sure student's age is greater than 18 years.
-
-# Instructions:
-* Fork this repository
-* Time yourself while working on the deliverables
-* Prioritize associations (being able to select an instructor for a student)
-* Commit when you hit 75 minutes
-* When you have finished all deliverables, commit again.
-* Slack us if you get stuck anywhere for more than 15 minutes.
+#### Use serializer to send response back
+* `gem 'active_model_serializers'`
+* `rails g serializer user`
+* `ActiveModel::Serializer` provides a way of creating custom JSON by representing each resource as a class that inherits from `ActiveModel::Serializer`. With that in mind, it gives us a better way of testing compared to other methods. It can also be tested in isolation regardless of how the data retrieval is done in the controller.

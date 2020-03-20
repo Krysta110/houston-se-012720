@@ -6,6 +6,10 @@ class Api::V1::StudentsController < ApplicationController
 
     def show
         @student = Student.find(params[:id])
+        #render json?
+        render json: @student
+        # render json: @student, except: :id
+
     end
 
     def new
