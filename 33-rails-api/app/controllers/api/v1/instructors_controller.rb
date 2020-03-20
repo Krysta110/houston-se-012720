@@ -1,4 +1,4 @@
-class InstructorsController < ApplicationController
+class Api::V1::InstructorsController < ApplicationController
 
   def show
     @instructor = Instructor.find(params[:id])
