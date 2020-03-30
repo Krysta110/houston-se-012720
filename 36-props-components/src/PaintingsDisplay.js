@@ -7,8 +7,9 @@ export function PaintingsDisplay() {
     console.log(paintings)
   return (
     <div>
-      PaintingsDisplay component
-      <PaintingInfo/>
+      {/* PaintingsDisplay component */}
+      {paintings.map(painting =>   <PaintingInfo painting={painting} key={painting.id}/> )}
+    
     </div>
   );
 }
