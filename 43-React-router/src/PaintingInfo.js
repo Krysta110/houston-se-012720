@@ -19,6 +19,7 @@ class PaintingInfo extends Component{
                     <h2>{this.props.painting.title}</h2>
                     <img src={this.props.painting.image}/>
                     <p>Artist Name: {this.props.painting.artist.name}</p>
+                    {/* <h5>current painting id is: {this.props.match.params.id}</h5> */}
                </div>)
     }
 
